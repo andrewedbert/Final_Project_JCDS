@@ -1,0 +1,179 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    <title>About Mushrooms - Biological Classification</title>
+    <style>
+        body{
+            background-image: url("https://www.aromatics.co.nz/uploads/slides/2140a1780.jpg");
+            background-attachment: fixed;
+            color: white
+        }
+        label{
+            color: white
+        }
+        h1{
+            color: white
+        }
+    </style>
+    <script>
+        function startTime() {
+          var today = new Date();
+          var h = today.getHours();
+          var m = today.getMinutes();
+          var s = today.getSeconds();
+          m = checkTime(m);
+          s = checkTime(s);
+          document.getElementById('txt').innerHTML =
+          h + ":" + m + ":" + s;
+          var t = setTimeout(startTime, 500);
+        }
+        function checkTime(i) {
+          if (i < 10) {i = "0" + i};  // add zero in front of numbers < 10
+          return i;
+        }
+    </script>
+    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+</head>
+<body class="d-flex flex-column">
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark fixed-top">
+        <!-- <a class="navbar-brand" href="#">Navbar</a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button> -->
+        
+        <div class="collapse navbar-collapse" id="navbarSupportedContent">
+            <ul class="navbar-nav mr-auto">
+            <li class="nav-item dropdown">
+                <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                Menu
+                </a>
+                <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                    <a class="dropdown-item" href="http://127.0.0.1:5000/main">Poisonous Prediction</a>
+                    <a class="dropdown-item" href="http://127.0.0.1:5000/aboutmushrooms/etymology">About Mushrooms</a>
+                    <a class="dropdown-item" href="http://127.0.0.1:5000/history">Test History</a>
+                <div class="dropdown-divider"></div>
+                <a class="dropdown-item" href="http://127.0.0.1:5000/logout">Log Out</a>
+                </div>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link disabled" href="#" tabindex="-1" aria-disabled="true">Current User: {{user}}</a>
+            </li>
+            </ul>
+            <!-- <form class="form-inline my-2 my-lg-0">
+            <input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search">
+            <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
+            </form> -->
+        </div>
+    </nav>
+    <br>
+    <br>
+    <br>
+    <br>
+    <div class="container">
+    <nav aria-label="...">
+        <ul class="pagination pagination-lg justify-content-center">
+            <li class="page-item"><a class="page-link" href="http://127.0.0.1:5000/aboutmushrooms/etymology">Etymology</a></li>
+            <li class="page-item active" aria-current="page">
+                <span class="page-link">
+                    Biological Classification
+                <span class="sr-only">(current)</span>
+            </span>
+            </li>
+            <li class="page-item"><a class="page-link" href="http://127.0.0.1:5000/aboutmushrooms/usage">Usage</a></li>
+        </ul>
+    </nav>
+    <center>
+        <h2 class="entry-title">Classification of Fungi</h2>
+
+				<div id="post-33" class="standard post-33 chapter type-chapter status-publish hentry">
+
+					<div class="entry-content">
+											
+					<p class="p1"><span class="s1">The kingdom Fungi contains five major phyla that were established according to their mode of sexual reproduction or using molecular data. Polyphyletic, unrelated fungi that reproduce without a sexual cycle, are placed for convenience in a sixth group called a “form phylum.” Not all mycologists agree with this scheme. Rapid advances in molecular biology and the sequencing of 18S rRNA (a part of RNA) continue to show new and different relationships between the various categories of fungi.</span></p>
+<p class="p1"><span class="s1">The five true phyla of fungi are the Chytridiomycota (Chytrids), the Zygomycota (conjugated fungi), the Ascomycota (sac fungi), the Basidiomycota (club fungi) and the recently described Phylum Glomeromycota. The Deuteromycota is an informal group of unrelated fungi that all share a common character – they use strictly asexual reproduction.</span></p>
+<p class="p1"><span class="s1">Note: “-mycota” is used to designate a phylum while “-mycetes” formally denotes a class or is used informally to refer to all members of the phylum.</span></p>
+<h2 class="p2"><span class="s1">Chytridiomycota: The Chytrids</span></h2>
+<p class="p1"><span class="s1">The only class in the Phylum Chytridiomycota is the <b>Chytridiomycetes</b>. The chytrids are the simplest and most primitive Eumycota, or true fungi. The evolutionary record shows that the first recognizable chytrids appeared during the late pre-Cambrian period, more than 500 million years ago. Like all fungi, chytrids have chitin in their cell walls, but one group of chytrids has both cellulose and chitin in the cell wall. Most chytrids are unicellular; a few form multicellular organisms and hyphae, which have no septa between cells (coenocytic). They produce gametes and diploid zoospores that swim with the help of a single flagellum.</span></p>
+<p class="p1"><span class="s1">The ecological habitat and cell structure of chytrids have much in common with protists. Chytrids usually live in aquatic environments, although some species live on land. Some species thrive as parasites on plants, insects, or amphibians (</span><span class="s2">Figure 1</span><span class="s1">), while others are saprobes. The chytrid species <i>Allomyces</i> is well characterized as an experimental organism. Its reproductive cycle includes both asexual and sexual phases. <i>Allomyces </i>produces diploid or haploid flagellated zoospores in a sporangium.</span></p>
+<p class="p4"><span id="fs-idm59006896" data-type="media" data-alt=" Micrograph A shows an arthropod, which is a teardrop-shaped transparent organism about 90 microns across and 120 microns long. Tentacle-like appendages jut out from the front, wide end of the organism, and clusters of cilia-like appendages just out from either side and the back. Transparent oval organisms about 20 microns across cling to the arthropod. Micrograph B shows a similar oval transparent organisms clinging to rod-shaped algae about 5 microns across and 200 microns long."><img src="http://cnx.org/resources/7c34ec2f5be1fdf65267bd4d6408493f/Figure_24_02_01.jpg" alt=" Micrograph A shows an arthropod, which is a teardrop-shaped transparent organism about 90 microns across and 120 microns long. Tentacle-like appendages jut out from the front, wide end of the organism, and clusters of cilia-like appendages just out from either side and the back. Transparent oval organisms about 20 microns across cling to the arthropod. Micrograph B shows a similar oval transparent organisms clinging to rod-shaped algae about 5 microns across and 200 microns long." width="280" data-media-type="image/jpg" /></span></p>
+<p class="p4"><strong>Figure 1. </strong>The chytrid <em data-effect="italics">Batrachochytrium dendrobatidis </em>is seen in these light micrographs as transparent spheres growing on (a) a freshwater arthropod and (b) algae. This chytrid causes skin diseases in many species of amphibians, resulting in species decline and extinction. (credit: modification of work by Johnson ML, Speare R., CDC)</p>
+<h2 class="p2"><span class="s1">Zygomycota: The Conjugated Fungi</span></h2>
+<p class="p1"><span class="s1">The zygomycetes are a relatively small group of fungi belonging to the Phylum <b>Zygomycota</b>. They include the familiar bread mold, <i>Rhizopus stolonifer</i>, which rapidly propagates on the surfaces of breads, fruits, and vegetables. Most species are saprobes, living off decaying organic material; a few are parasites, particularly of insects. Zygomycetes play a considerable commercial role. The metabolic products of other species of <i>Rhizopus</i> are intermediates in the synthesis of semi-synthetic steroid hormones.</span></p>
+<p class="p1"><span class="s1">Zygomycetes have a thallus of coenocytic hyphae in which the nuclei are haploid when the organism is in the vegetative stage. The fungi usually reproduce asexually by producing sporangiospores (</span><span class="s2">Figure 2</span><span class="s1">). The black tips of bread mold are the swollen sporangia packed with black spores (</span><span class="s2">Figure 3</span><span class="s1">). When spores land on a suitable substrate, they germinate and produce a new mycelium. Sexual reproduction starts when conditions become unfavorable. Two opposing mating strains (type + and type –) must be in close proximity for gametangia from the hyphae to be produced and fuse, leading to karyogamy. The developing diploid <b>zygospores</b> have thick coats that protect them from desiccation and other hazards. They may remain dormant until environmental conditions are favorable. When the zygospore germinates, it undergoes meiosis and produces haploid spores, which will, in turn, grow into a new organism. This form of sexual reproduction in fungi is called conjugation (although it differs markedly from conjugation in bacteria and protists), giving rise to the name “conjugated fungi.”</span></p>
+<p id="fig-ch24_02_02" class="ui-has-child-figcaption"><span id="fs-idp77267904" data-type="media" data-alt="The asexual and sexual life cycles of zygomycetes are shown. In the asexual life cycle, 1n spores undergo mitosis to form long chains of cells called mycelia. Germination results in the formation of more spores. In the sexual life cycle, spores germinate to form mycelia with two different mating types: plus and minus. If the plus and minus mating types are in close proximity, extensions called gametangia form between them. In a process called plasmogamy, the gametangia fuse to form a zygosporangium with multiple haploid nuclei. A thick, protective coat forms around the zygosporangium. In a process called karyogamy, the nuclei fuse to form a zygote with multiple diploid (2n) nuclei. The zygote undergoes meiosis and germination. A sporangium grows on a short stalk. Haploid spores are formed inside. The spores germinate, ending the cycle."><img src="http://cnx.org/resources/15f9d25c8a0de4748c207b46e0add4a7/Figure_24_02_02.jpg" alt="The asexual and sexual life cycles of zygomycetes are shown. In the asexual life cycle, 1n spores undergo mitosis to form long chains of cells called mycelia. Germination results in the formation of more spores. In the sexual life cycle, spores germinate to form mycelia with two different mating types: plus and minus. If the plus and minus mating types are in close proximity, extensions called gametangia form between them. In a process called plasmogamy, the gametangia fuse to form a zygosporangium with multiple haploid nuclei. A thick, protective coat forms around the zygosporangium. In a process called karyogamy, the nuclei fuse to form a zygote with multiple diploid (2n) nuclei. The zygote undergoes meiosis and germination. A sporangium grows on a short stalk. Haploid spores are formed inside. The spores germinate, ending the cycle." width="425" data-media-type="image/jpg" /></span></p>
+<p class="ui-has-child-figcaption"><span id="fs-idp77267904" data-type="media" data-alt="The asexual and sexual life cycles of zygomycetes are shown. In the asexual life cycle, 1n spores undergo mitosis to form long chains of cells called mycelia. Germination results in the formation of more spores. In the sexual life cycle, spores germinate to form mycelia with two different mating types: plus and minus. If the plus and minus mating types are in close proximity, extensions called gametangia form between them. In a process called plasmogamy, the gametangia fuse to form a zygosporangium with multiple haploid nuclei. A thick, protective coat forms around the zygosporangium. In a process called karyogamy, the nuclei fuse to form a zygote with multiple diploid (2n) nuclei. The zygote undergoes meiosis and germination. A sporangium grows on a short stalk. Haploid spores are formed inside. The spores germinate, ending the cycle."><strong>Figure 2. </strong>Zygomycetes have asexual and asexual life cycles. In the sexual life cycle, plus and minus mating types conjugate to form a zygosporangium.</span></p>
+<p id="fig-ch24_02_03" class="ui-has-child-figcaption"><span id="fs-idp27457216" data-type="media" data-alt=" The photo shows a thick layer of green mold growing on bread. Fuzzy white projections grow from the mold."><img src="http://cnx.org/resources/19bbf53d840bc5ef26de12b2f67782f3/Figure_24_02_03abf.jpg" alt=" The photo shows a thick layer of green mold growing on bread. Fuzzy white projections grow from the mold." width="450" data-media-type="image/jpg" /></span></p>
+<p class="ui-has-child-figcaption"><span id="fs-idp27457216" data-type="media" data-alt=" The photo shows a thick layer of green mold growing on bread. Fuzzy white projections grow from the mold."><strong>Figure 3. </strong>Sporangia grow at the end of stalks, which appear as (a) white fuzz seen on this bread mold, <em data-effect="italics">Rhizopus stolonifer</em>. The (b) tips of bread mold are the spore-containing sporangia. (credit b: modification of work by &#8220;polandeze&#8221;/Flickr)</span></p>
+<h2 class="p2"><span class="s1">Ascomycota: The Sac Fungi</span></h2>
+<p class="p1"><span class="s1">The majority of known fungi belong to the Phylum <b>Ascomycota</b>, which is characterized by the formation of an <b>ascus</b> (plural, asci), a sac-like structure that contains haploid ascospores. Many ascomycetes are of commercial importance. Some play a beneficial role, such as the yeasts used in baking, brewing, and wine fermentation, plus truffles and morels, which are held as gourmet delicacies. <i>Aspergillus oryzae</i> is used in the fermentation of rice to produce sake. Other ascomycetes parasitize plants and animals, including humans. For example, fungal pneumonia poses a significant threat to AIDS patients who have a compromised immune system. Ascomycetes not only infest and destroy crops directly; they also produce poisonous secondary metabolites that make crops unfit for consumption. Filamentous ascomycetes produce hyphae divided by perforated septa, allowing streaming of cytoplasm from one cell to the other. Conidia and asci, which are used respectively for asexual and sexual reproductions, are usually separated from the vegetative hyphae by blocked (non-perforated) septa.</span></p>
+<p class="p1"><span class="s1">Asexual reproduction is frequent and involves the production of conidiophores that release haploid conidiospores (</span><span class="s2">Figure</span><span class="s1">). Sexual reproduction starts with the development of special hyphae from either one of two types of mating strains (</span><span class="s2">Figure</span><span class="s1">). The “male” strain produces an antheridium and the “female” strain develops an ascogonium. At fertilization, the antheridium and the ascogonium combine in plasmogamy without nuclear fusion. Special ascogenous hyphae arise, in which pairs of nuclei migrate: one from the “male” strain and one from the “female” strain. In each ascus, two or more haploid ascospores fuse their nuclei in karyogamy. During sexual reproduction, thousands of asci fill a fruiting body called the <b>ascocarp</b>. The diploid nucleus gives rise to haploid nuclei by meiosis. The ascospores are then released, germinate, and form hyphae that are disseminated in the environment and start new mycelia (</span><span class="s2">Figure</span><span class="s1">).</span></p>
+<div class="textbox key-takeaways">
+<h3>Art Connection</h3>
+<section>
+<div data-type="note">
+<p><img src="http://cnx.org/resources/97c62089d58e6888e229d1e93ecea341/Figure_24_02_04.png" alt=" Ascomycetes have both sexual and asexual life cycles. In the asexual life cycle, the haploid (1n) mycelium branches into a chain of cells called the conidiophore. Spores bud from the end of the conidiophore and germinate to form more mycelia. In the sexual life cycle, a round structure called an antheridium buds from the male strain, and a similar structure called the ascogonium buds from the female strain. In a process called plasmogamy, the ascogonium and antheridium fuse to form a cell with multiple haploid nuclei. Mitosis and cell division result in the growth of many hyphae, which form a fruiting body called the ascocarp. The hyphae are dikaryotic, meaning they have two haploid nuclei. Asci form at the tips of these hyphae. In a process called karyogamy, the nuclei in the asci fuse to form a diploid (2n) zygote. The zygote undergoes meiosis without cell division, resulting in an ascus with four 1n nuclei arranged in a row. Each nucleus undergoes mitosis, resulting in eight ascospores, which are also arranged in a row at the tip of the hyphae. Dispersal and germination results in the growth of new mycelia." width="425" data-media-type="image/jpg" /></p>
+<p><strong>Figure 4. </strong>The lifecycle of an ascomycete is characterized by the production of asci during the sexual phase. The haploid phase is the predominant phase of the life cycle.</p>
+<p>Which of the following statements is true?</p>
+<ol>
+<li>A dikaryotic ascus that forms in the ascocarp undergoes karyogamy, meiosis, and mitosis to form eight ascospores.</li>
+<li>A diploid ascus that forms in the ascocarp undergoes karyogamy, meiosis, and mitosis to form eight ascospores.</li>
+<li>A haploid zygote that forms in the ascocarp undergoes karyogamy, meiosis, and mitosis to form eight ascospores.</li>
+<li>A dikaryotic ascus that forms in the ascocarp undergoes plasmogamy, meiosis, and mitosis to form eight ascospores.</li>
+</ol>
+<p>Statement 1 is true.</p>
+</div>
+</section>
+</div>
+<p class="p4"><span class="s1"><b><img src="http://cnx.org/resources/05337b510ddba541cdb7975a47765bac/Figure_24_02_05.jpg" alt="Micrograph shows asci, which appear as multiple, sphere-like shapes fused together into a structure about 7 microns across, and ascospores, which are small, light blue ovals about two microns wide by three microns long released from the asci." width="250" data-media-type="image/jpg" /></b></span></p>
+<p class="p4"><span class="s1"><b>Figure 5.</b> The bright field light micrograph shows ascospores being released from asci in the fungus <i>Talaromyces flavus</i> var. <i>flavus</i>. (credit: modification of work by Dr. Lucille Georg, CDC; scale-bar data from Matt Russell)</span></p>
+<h2 class="p2"><span class="s1">Basidiomycota: The Club Fungi</span></h2>
+<p class="p1"><span class="s1">The fungi in the Phylum <b>Basidiomycota</b> are easily recognizable under a light microscope by their club-shaped fruiting bodies called <b>basidia</b> (singular, <b>basidium</b>), which are the swollen terminal cell of a hypha. The basidia, which are the reproductive organs of these fungi, are often contained within the familiar mushroom, commonly seen in fields after rain, on the supermarket shelves, and growing on your lawn (</span><span class="s2">Figure 6</span><span class="s1">). These mushroom-producing basidiomyces are sometimes referred to as “gill fungi” because of the presence of gill-like structures on the underside of the cap. The “gills” are actually compacted hyphae on which the basidia are borne. This group also includes shelf fungus, which cling to the bark of trees like small shelves. In addition, the basidiomycota includes smuts and rusts, which are important plant pathogens; toadstools, and shelf fungi stacked on tree trunks. Most edible fungi belong to the Phylum Basidiomycota; however, some basidiomycetes produce deadly toxins. For example, <i>Cryptococcus neoformans</i> causes severe respiratory illness.</span></p>
+<p class="p4"><span id="fs-idm112370944" data-type="media" data-alt=" Photo shows toadstools growing in a ring on a lawn."><img src="http://cnx.org/resources/87590be7d3a06e5097261bed51a40e33/Figure_24_02_06.jpg" alt=" Photo shows toadstools growing in a ring on a lawn." width="300" data-media-type="image/jpg" /></span></p>
+<p class="p4"><strong>Figure 6. </strong>The fruiting bodies of a basidiomycete form a ring in a meadow, commonly called “fairy ring.” The best-known fairy ring fungus has the scientific name <em data-effect="italics">Marasmius oreades</em>. The body of this fungus, its mycelium, is underground and grows outward in a circle. As it grows, the mycelium depletes the soil of nitrogen, causing the mycelia to grow away from the center and leading to the “fairy ring” of fruiting bodies where there is adequate soil nitrogen. (Credit: &#8220;Cropcircles&#8221;/Wikipedia Commons)]</p>
+<p class="p1"><span class="s1">The lifecycle of basidiomycetes includes alternation of generations (</span><span class="s2">Figure 7</span><span class="s1">). Spores are generally produced through sexual reproduction, rather than asexual reproduction. The club-shaped basidium carries spores called basidiospores. In the basidium, nuclei of two different mating strains fuse (karyogamy), giving rise to a diploid zygote that then undergoes meiosis. The haploid nuclei migrate into basidiospores, which germinate and generate monokaryotic hyphae. The mycelium that results is called a primary mycelium. Mycelia of different mating strains can combine and produce a secondary mycelium that contains haploid nuclei of two different mating strains. This is the dikaryotic stage of the basidiomyces lifecyle and and it is the dominant stage. Eventually, the secondary mycelium generates a <b>basidiocarp</b>, which is a fruiting body that protrudes from the ground—this is what we think of as a mushroom. The basidiocarp bears the developing basidia on the gills under its cap.</span></p>
+<div class="textbox key-takeaways">
+<h3>Art Connection</h3>
+<section>
+<div data-type="note">
+<p><span id="fs-idm63272608" data-type="media" data-alt=" The life cycle of basidiomycetes, better known as mushrooms, is shown. Basidiomycetes have a sexual life cycle that begins with the germination of 1n basidiospores into mycelia with plus and minus mating types. In a process called plasmogamy, the plus and minus mycelia form a dikaryotic mycelium. Under the right conditions, the dikaryotic mycelium grows into a basdiocarp, or mushroom. Gills on the underside of the mushroom cap contain cells called basidia. The basidia undergo karyogamy to form a 2n zygote. The zygote undergoes meiosis to form cells with four haploid (1n) nuclei. Cell division results in four basidiospores. Dispersal and germination of basidiospores ends the cycle."><img src="http://cnx.org/resources/8f5908cc902c37c106827c48ba1e702f/Figure_24_02_07.png" alt=" The life cycle of basidiomycetes, better known as mushrooms, is shown. Basidiomycetes have a sexual life cycle that begins with the germination of 1n basidiospores into mycelia with plus and minus mating types. In a process called plasmogamy, the plus and minus mycelia form a dikaryotic mycelium. Under the right conditions, the dikaryotic mycelium grows into a basdiocarp, or mushroom. Gills on the underside of the mushroom cap contain cells called basidia. The basidia undergo karyogamy to form a 2n zygote. The zygote undergoes meiosis to form cells with four haploid (1n) nuclei. Cell division results in four basidiospores. Dispersal and germination of basidiospores ends the cycle." width="350" data-media-type="image/jpg" /></span></p>
+<p><strong>Figure 7. </strong>The lifecycle of a basidiomycete alternates generation with a prolonged stage in which two nuclei (dikaryon) are present in the hyphae.</p>
+<p>Which of the following statements is true?</p>
+<ol>
+<li>A basidium is the fruiting body of a mushroom-producing fungus, and it forms four basidiocarps.</li>
+<li>The result of the plasmogamy step is four basidiospores.</li>
+<li>Karyogamy results directly in the formation of mycelia.</li>
+<li>A basidiocarp is the fruiting body of a mushroom-producing fungus.</li>
+</ol>
+<p>Statement 4 is true.</p>
+</div>
+</section>
+</div>
+<h2 class="p2"><span class="s1">Deuteromycota: The Imperfect Fungi</span></h2>
+<p class="p1"><span class="s1">Imperfect fungi—those that do not display a sexual phase—are classified in the form phylum <b>Deuteromycota</b>. Deuteromycota is a polyphyletic group where many species are more closely related to organisms in other phyla than to each other; hence it cannot be called a true phylum and must, instead, be given the name form phylum. Since they do not possess the sexual structures that are used to classify other fungi, they are less well described in comparison to other divisions. Most members live on land, with a few aquatic exceptions. They form visible mycelia with a fuzzy appearance and are commonly known as <b>mold</b>. Molecular analysis shows that the closest group to the deuteromycetes is the ascomycetes. In fact, some species, such as <i>Aspergillus,</i> which were once classified as imperfect fungi, are now classified as ascomycetes.</span></p>
+<p class="p1"><span class="s1">Reproduction of Deuteromycota is strictly asexual and occurs mostly by production of asexual conidiospores (</span><span class="s2">Figure 8</span><span class="s1">). Some hyphae may recombine and form heterokaryotic hyphae. Genetic recombination is known to take place between the different nuclei.</span></p>
+<p class="p4"><span class="s1"><i><img src="http://cnx.org/resources/58fb39f3da1b2e294a3ecca93a636cb3/Figure_24_02_08.jpg" alt=" Micrograph shows Aspergillus mycelia, which look like long threads, and a spherical conidiophore about 40 microns across." width="300" data-media-type="image/jpg" /></i></span></p>
+<p class="p4"><span class="s1"><strong>Figure 8. </strong><i>Aspergillus niger</i> is an imperfect fungus commonly found as a food contaminant. The spherical structure in this light micrograph is a conidiophore. (credit: modification of work by Dr. Lucille Georg, CDC; scale-bar data from Matt Russell)</span></p>
+<p class="p1"><span class="s1">Imperfect fungi have a large impact on everyday human life. The food industry relies on them for ripening some cheeses. The blue veins in Roquefort cheese and the white crust on Camembert are the result of fungal growth. The antibiotic penicillin was originally discovered on an overgrown Petri plate, on which a colony of<i> Penicillium</i> fungi killed the bacterial growth surrounding it. Many imperfect fungi cause serious diseases, either directly as parasites (which infect both plants and humans), or as producers of potent toxic compounds, as seen in the aflatoxins released by fungi of the genus <i>Aspergillus</i>.</span></p>
+<h2 class="p2"><span class="s1">Glomeromycota</span></h2>
+<p class="p1"><span class="s1">The <b>Glomeromycota</b> is a newly established phylum which comprises about 230 species that all live in close association with the roots of trees. Fossil records indicate that trees and their root symbionts share a long evolutionary history. It appears that all members of this family form <b>arbuscular mycorrhizae</b>: the hyphae interact with the root cells forming a mutually beneficial association where the plants supply the carbon source and energy in the form of carbohydrates to the fungus, and the fungus supplies essential minerals from the soil to the plant.</span></p>
+<p class="p1"><span class="s1">The glomeromycetes do not reproduce sexually and do not survive without the presence of plant roots. Although they have coenocytic hyphae like the zygomycetes, they do not form zygospores. DNA analysis shows that all glomeromycetes probably descended from a common ancestor, making them a monophyletic lineage.</span></p>
+<h2 class="p2"><span class="s1">Section Summary</span></h2>
+<p class="p1"><span class="s1">Chytridiomycota (chytrids) are considered the most primitive group of fungi. They are mostly aquatic, and their gametes are the only fungal cells known to have flagella. They reproduce both sexually and asexually; the asexual spores are called zoospores. Zygomycota (conjugated fungi) produce non-septated hyphae with many nuclei. Their hyphae fuse during sexual reproduction to produce a zygospore in a zygosporangium. Ascomycota (sac fungi) form spores in sacs called asci during sexual reproduction. Asexual reproduction is their most common form of reproduction. Basidiomycota (club fungi) produce showy fruiting bodies that contain basidia in the form of clubs. Spores are stored in the basidia. Most familiar mushrooms belong to this division. Deuteromycota (imperfect fungi) belong to a polyphyletic group that does not reproduce through sexual reproduction. Glomeromycota form tight associations (called mycorrhizae) with the roots of plants.</span></p>
+
+					</div><!-- .entry-content -->
+				</div><!-- #post-## -->
+    </center>
+    </div>
+    <!-- <footer id="sticky-footer" class="py-4 bg-dark text-white-50">
+            <div class="container text-center">
+              <small>Copyright &copy; Your Website</small>
+            </div>
+          </footer> -->
+</body>
+</html>

@@ -1,0 +1,345 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    
+    <title>Home</title>
+    <style>
+        body{
+            background-image: url("https://www.aromatics.co.nz/uploads/slides/2140a1780.jpg");
+            background-attachment: fixed;
+        }
+        label{
+            color: white
+        }
+        h1{
+            color: white
+        }
+        
+    </style>
+    <script>
+        function startTime() {
+          var today = new Date();
+          var h = today.getHours();
+          var m = today.getMinutes();
+          var s = today.getSeconds();
+          m = checkTime(m);
+          s = checkTime(s);
+          document.getElementById('txt').innerHTML =
+          h + ":" + m + ":" + s;
+          var t = setTimeout(startTime, 500);
+        }
+        function checkTime(i) {
+          if (i < 10) {i = "0" + i};  // add zero in front of numbers < 10
+          return i;
+        }
+    </script>
+    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+</head>
+<body>
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark fixed-top">
+        <div class="collapse navbar-collapse" id="navbarSupportedContent">
+            <ul class="navbar-nav mr-auto">
+            <li class="nav-item dropdown">
+                <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                Menu
+                </a>
+                <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                    <a class="dropdown-item" href="http://127.0.0.1:5000/main">Poisonous Prediction</a>
+                    <a class="dropdown-item" href="http://127.0.0.1:5000/aboutmushrooms/etymology">About Mushrooms</a>
+                    <a class="dropdown-item" href="http://127.0.0.1:5000/history">Test History</a>
+                <div class="dropdown-divider"></div>
+                <a class="dropdown-item" href="http://127.0.0.1:5000/logout">Log Out</a>
+                </div>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link disabled" href="#" tabindex="-1" aria-disabled="true">Current User: {{user}}</a>
+            </li>
+            </ul>
+        </div>
+    </nav>
+    <br>
+    <br>
+    <br>
+    <br>
+    <center>
+    <h1>Welcome {{user}}</h1>
+    <br>
+    <form action="/res" method="POST">
+        <div class="container-fluid">
+        <div class="row">
+            <div class="col">
+                <label for="">Cap-Shape:</label>
+                <select class ="form-control"name="cap-shape" id="">
+                    <option value="0">Bell</option>
+                    <option value="1">Conical</option>
+                    <option value="2">Convex</option>
+                    <option value="3">Flat</option>
+                    <option value="4">Knobbed</option>
+                    <option value="5">Sunken</option>
+                    <!-- <option selected hidden></option> -->
+                </select>
+            </div>
+            <div class="col">
+                <label for="">Cap-Surface:</label><br>
+                <select class="form-control"name="cap-surface" id="">
+                    <option value="0">Fibrous</option>
+                    <option value="1">Grooves</option>
+                    <option value="2">Scaly</option>
+                    <option value="3">Smooth</option>
+                    <!-- <option selected hidden></option> -->
+                </select>
+            </div>
+            <div class="col">
+                <label for="">Cap-Color:</label><br>
+                <select class="form-control" name="cap-color" id="">
+                    <option value="0">Brown</option>
+                    <option value="1">Buff</option>
+                    <option value="2">Cinnamon</option>
+                    <option value="3">Gray</option>
+                    <option value="4">Green</option>
+                    <option value="5">Pink</option>
+                    <option value="6">Purple</option>
+                    <option value="7">Red</option>
+                    <option value="8">White</option>
+                    <option value="9">Yellow</option>
+                    <!-- <option selected hidden></option> -->
+                </select>
+            </div>
+            <div class="col">
+                <label for="">Bruises:</label><br>
+                <select class="form-control" name="bruises" id="">
+                    <option value="0">Bruises</option>
+                    <option value="1">No Bruises</option>
+                <!-- <option selected hidden></option> -->
+                </select>
+            </div>
+            <div class="col">
+                <label for="">Odor:</label><br>
+                <select name="odor" id="" class="form-control">
+                    <option value="0">Almond</option>
+                    <option value="1">Anise</option>
+                    <option value="2">Creosote</option>
+                    <option value="3">Fishy</option>
+                    <option value="4">Foul</option>
+                    <option value="5">Musty</option>
+                    <option value="6">None</option>
+                    <option value="7">Pungent</option>
+                    <option value="8">Spicy</option>
+                    <!-- <option selected hidden></option> -->
+                </select>
+            </div>
+            <div class="col">
+                <label for="">Gill-Attachment:</label><br>
+                <select name="gill-attachment" class="form-control" id="">
+                    <option value="0">Attached</option>
+                    <option value="1">Descending</option>
+                    <option value="2">Free</option>
+                    <option value="3">Notched</option>
+                    <!-- <option selected hidden></option> -->
+                </select>
+            </div>
+            <div class="col">
+                <label for="">Gill-Spacing:</label><br>
+                <select name="gill-spacing" class="form-control" id="">
+                    <option value="0">Close</option>
+                    <option value="1">Crowded</option>
+                    <option value="2">Distant</option>
+                    <!-- <option selected hidden></option> -->
+                </select>
+            </div>
+        </div>
+        <br>
+    <div class="row">
+        <div class="col">
+            <label for="">Gill-Size:</label><br>
+            <select name="gill-size" class="form-control" id="">
+                <option value="0">Broad</option>
+                <option value="1">Narrow</option>
+                <!-- <option selected hidden></option> -->
+            </select>
+        </div>
+        <div class="col">
+            <label for="">Gill-Color:</label><br>
+            <select name="gill-color" class="form-control" id="">
+                <option value="0">Black</option>
+                <option value="1">Brown</option>
+                <option value="2">Buff</option>
+                <option value="3">Chocolate</option>
+                <option value="4">Gray</option>
+                <option value="5">Green</option>
+                <option value="6">Orange</option>
+                <option value="7">Pink</option>
+                <option value="8">Purple</option>
+                <option value="9">Red</option>
+                <option value="10">White</option>
+                <option value="11">Yellow</option>
+                <!-- <option selected hidden></option> -->
+            </select>
+        </div>
+        <div class="col">
+        <label for="">Stalk-Shape:</label><br>
+        <select name="stalk-shape"class="form-control" id="">
+            <option value="0">Enlarging</option>
+            <option value="1">Tapering</option>
+            <!-- <option selected hidden></option> -->
+        </select>
+    </div>
+    <div class="col">    
+    <label for="">Stalk-Root:</label><br>
+        <select name="stalk-root"class="form-control" id="">
+            <option value="0">Bulbous</option>
+            <option value="1">Club</option>
+            <option value="2">Cup</option>
+            <option value="3">Equal</option>
+            <option value="4">Rhizomorphs</option>
+            <option value="5">Rooted</option>
+            <option value="6">Missing</option>
+            <!-- <option selected hidden></option> -->
+        </select>
+    </div>
+    <div class="col">
+        <label for="">Stalk-Surface-Above-Ring:</label><br>
+        <select name="stalk-surface-above-ring"class="form-control" id="">
+            <option value="0">Fibrous</option>
+            <option value="1">Scaly</option>
+            <option value="2">Silky</option>
+            <option value="3">Smooth</option>
+            <!-- <option selected hidden></option> -->
+        </select>
+    </div>
+        <div class="col">
+        <label for="">Stalk-Surface-Below-Ring:</label><br>
+        <select name="stalk-surface-below-ring"class="form-control" id="">
+            <option value="0">Fibrous</option>
+            <option value="1">Scaly</option>
+            <option value="2">Silky</option>
+            <option value="3">Smooth</option>
+            <!-- <option selected hidden></option> -->
+        </select>
+        </div>
+
+        <div class="col">
+        <label for="">Stalk-Color-Above-Ring:</label>
+        <select name="stalk-color-above-ring"class="form-control" id="">
+            <option value="0">Brown</option>
+            <option value="1">Buff</option>
+            <option value="2">Cinnamon</option>
+            <option value="3">Gray</option>
+            <option value="4">Orange</option>
+            <option value="5">Pink</option>
+            <option value="6">Red</option>
+            <option value="7">White</option>
+            <option value="8">Yellow</option>
+            <!-- <option selected hidden></option> -->
+        </select>
+        </div>
+    </div>
+    <br>
+        <div class="row">
+            <div class="col">
+                    <label for="">Stalk-Color-Below-Ring:</label><br>
+                    <select name="stalk-color-below-ring"class="form-control" id="">
+                        <option value="0">Brown</option>
+                        <option value="1">Buff</option>
+                        <option value="2">Cinnamon</option>
+                        <option value="3">Gray</option>
+                        <option value="4">Orange</option>
+                        <option value="5">Pink</option>
+                        <option value="6">Red</option>
+                        <option value="7">White</option>
+                        <option value="8">Yellow</option>
+                        <!-- <option selected hidden></option> -->
+                    </select>
+                    </div>
+                    <div class="col">
+                    <label for="">Veil-Color:</label><br>
+                    <select name="veil-color"class="form-control" id="">
+                        <option value="0">Brown</option>
+                        <option value="1">Orange</option>
+                        <option value="2">White</option>
+                        <option value="3">Yellow</option>
+                        <!-- <option selected hidden></option> -->
+                    </select>
+                    </div>
+        <div class="col">
+            <label for="">Ring-Number:</label><br>
+            <select name="ring-number"class="form-control" id="">
+                <option value="0">None</option>
+                <option value="1">One</option>
+                <option value="2">Two</option>
+                <!-- <option selected hidden></option> -->
+            </select>
+        </div>
+
+        <div class="col">
+        <label for="">Ring-Type:</label><br>
+        <select name="ring-type"class="form-control" id="">
+            <option value="0">Cobwebby</option>
+            <option value="1">Evanescent</option>
+            <option value="2">Flaring</option>
+            <option value="3">Large</option>
+            <option value="4">None</option>
+            <option value="5">Pendant</option>
+            <option value="6">Sheathing</option>
+            <option value="7">Zone</option>
+            <!-- <option selected hidden></option> -->
+        </select>
+        </div>
+
+        <div class="col">
+        <label for="">Spore-Print-Color:</label><br>
+        <select name="spore-print-color"class="form-control" id="">
+            <option value="0">Black</option>
+            <option value="1">Brown</option>
+            <option value="2">Buff</option>
+            <option value="3">Chocolate</option>
+            <option value="4">Green</option>
+            <option value="5">Orange</option>
+            <option value="6">Purple</option>
+            <option value="7">White</option>
+            <option value="8">Yellow</option>
+            <!-- <option selected hidden></option> -->
+        </select>
+        </div>
+
+        <div class="col">
+        <label for="">Population:</label><br>
+        <select name="population"class="form-control" id="">
+            <option value="0">Abundant</option>
+            <option value="1">Clustered</option>
+            <option value="2">Numerous</option>
+            <option value="3">Scattered</option>
+            <option value="4">Several</option>
+            <option value="5">Solitary</option>
+            <!-- <option selected hidden></option> -->
+        </select>
+        </div>
+        
+        <div class="col">
+        <label for="">Habitat:</label><br>
+        <select name="habitat" class="form-control"id="">
+            <option value="0">Grasses</option>
+            <option value="1">Leaves</option>
+            <option value="2">Meadows</option>
+            <option value="3">Paths</option>
+            <option value="4">Urban</option>
+            <option value="5">Waste</option>
+            <option value="6">Woods</option>
+            <!-- <option selected hidden></option> -->
+        </select>
+        </div>
+    </div>
+</div>
+
+        <br><br>
+        <input type="submit" value="Is it poisonous?" class="btn btn-primary btn-lg">
+    </form>
+    </center>
+</body>
+</html>
