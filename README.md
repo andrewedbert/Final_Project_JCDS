@@ -2539,6 +2539,7 @@ jb.dump(modelrfc,'modelmushroom')
     ![Main](screenshots/MainMenu.png)
 
     In this app, there are several pages can found in NavBar:
+    
     ![NavBar](screenshots/NavBar.png)
 
     1. Poisonous Prediction (Main Menu)
