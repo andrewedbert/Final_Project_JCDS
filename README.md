@@ -36,6 +36,7 @@ from sklearn.metrics import confusion_matrix,classification_report,matthews_corr
 from sklearn.neighbors import KNeighborsClassifier
 from sklearn.model_selection import cross_val_score
 import seaborn as sb
+from sklearn.model_selection import GridSearchCV
 ```
 
 ### 2. Reading CSV Data
@@ -2269,9 +2270,6 @@ modelknn = KNeighborsClassifier(
 )
 modelknn.fit(xtr,ytr)
 
-logmodel = LogisticRegression(solver='lbfgs',max_iter=1000)
-logmodel.fit(xtr,ytr)
-
 modelrfc = RandomForestClassifier(n_estimators=100)
 modelrfc.fit(xtr,ytr)
 ```
@@ -2287,6 +2285,66 @@ modelrfc.fit(xtr,ytr)
                            n_jobs=None, oob_score=False, random_state=None,
                            verbose=0, warm_start=False)
 
+
+
+
+```python
+search = GridSearchCV(estimator=modelrfc,
+                     param_grid={
+                         'n_estimators':[100,200,300,500],
+                         'bootstrap': ['True','False'],
+                         'min_samples_split':[2,5,10,20]
+                     },scoring='accuracy',
+                      cv=5,n_jobs= -1)
+```
+
+
+```python
+search.fit(xtr,ytr)
+```
+
+
+
+
+    GridSearchCV(cv=5, error_score='raise-deprecating',
+                 estimator=RandomForestClassifier(bootstrap=True, class_weight=None,
+                                                  criterion='gini', max_depth=None,
+                                                  max_features='auto',
+                                                  max_leaf_nodes=None,
+                                                  min_impurity_decrease=0.0,
+                                                  min_impurity_split=None,
+                                                  min_samples_leaf=1,
+                                                  min_samples_split=2,
+                                                  min_weight_fraction_leaf=0.0,
+                                                  n_estimators=100, n_jobs=None,
+                                                  oob_score=False,
+                                                  random_state=None, verbose=0,
+                                                  warm_start=False),
+                 iid='warn', n_jobs=-1,
+                 param_grid={'bootstrap': ['True', 'False'],
+                             'min_samples_split': [2, 5, 10, 20],
+                             'n_estimators': [100, 200, 300, 500]},
+                 pre_dispatch='2*n_jobs', refit=True, return_train_score=False,
+                 scoring='accuracy', verbose=0)
+
+
+
+
+```python
+search.best_params_
+```
+
+
+
+
+    {'bootstrap': 'True', 'min_samples_split': 2, 'n_estimators': 100}
+
+
+
+
+```python
+modelrfc = RandomForestClassifier(bootstrap=True,min_samples_split=2,n_estimators=100)
+```
 
 
 ### 9. Cross Validating Scores of each Models

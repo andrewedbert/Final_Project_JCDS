@@ -1,7 +1,7 @@
 
-## Poisonous Mushrooms Classification
+# Poisonous Mushrooms Classification
 
-### 1. Importing required libraries
+## 1. Importing required libraries
 
 
 ```python
@@ -14,10 +14,22 @@ from sklearn.ensemble import RandomForestClassifier
 from sklearn.metrics import confusion_matrix,classification_report,matthews_corrcoef, roc_auc_score, confusion_matrix, accuracy_score, roc_curve, auc,f1_score
 from sklearn.neighbors import KNeighborsClassifier
 from sklearn.model_selection import cross_val_score
+from sklearn.linear_model import LogisticRegression
 import seaborn as sb
+from sklearn.model_selection import GridSearchCV
 ```
 
-### 2. Reading CSV Data
+    C:\Users\andre\Anaconda3\lib\importlib\_bootstrap.py:219: RuntimeWarning: numpy.ufunc size changed, may indicate binary incompatibility. Expected 192 from C header, got 216 from PyObject
+      return f(*args, **kwds)
+    C:\Users\andre\Anaconda3\lib\importlib\_bootstrap.py:219: RuntimeWarning: numpy.ufunc size changed, may indicate binary incompatibility. Expected 192 from C header, got 216 from PyObject
+      return f(*args, **kwds)
+    C:\Users\andre\Anaconda3\lib\importlib\_bootstrap.py:219: RuntimeWarning: numpy.ufunc size changed, may indicate binary incompatibility. Expected 192 from C header, got 216 from PyObject
+      return f(*args, **kwds)
+    C:\Users\andre\Anaconda3\lib\importlib\_bootstrap.py:219: RuntimeWarning: numpy.ufunc size changed, may indicate binary incompatibility. Expected 192 from C header, got 216 from PyObject
+      return f(*args, **kwds)
+    
+
+## 2. Reading CSV Data
 
 
 ```python
@@ -197,7 +209,7 @@ dfmushroom.head()
 
 
 
-### 3. Translating Alphabetical signs into words from 'Mushroom Notes.txt' notes
+## 3. Translating Alphabetical signs into words from 'Mushroom Notes.txt' notes
 
 
 ```python
@@ -696,7 +708,7 @@ dfmushroom
 
 
 
-### 4. Data Visualisation
+## 4. Data Visualisation
 
 
 ```python
@@ -754,12 +766,12 @@ sb.countplot(x=dfmushroom['class'])
 
 
 
-    <matplotlib.axes._subplots.AxesSubplot at 0x1d59253a488>
+    <matplotlib.axes._subplots.AxesSubplot at 0x16d7e46f488>
 
 
 
 
-![png](screenshots/output_10_1.png)
+![png](output_10_1.png)
 
 
 
@@ -788,12 +800,12 @@ sb.countplot(x=dfmushroom['cap-shape'])
 
 
 
-    <matplotlib.axes._subplots.AxesSubplot at 0x1d592595288>
+    <matplotlib.axes._subplots.AxesSubplot at 0x16d7ed64d08>
 
 
 
 
-![png](screenshots/output_12_1.png)
+![png](output_12_1.png)
 
 
 
@@ -820,12 +832,12 @@ sb.countplot(x=dfmushroom['cap-surface'])
 
 
 
-    <matplotlib.axes._subplots.AxesSubplot at 0x1d592a36a48>
+    <matplotlib.axes._subplots.AxesSubplot at 0x16d7f1db508>
 
 
 
 
-![png](screenshots/output_14_1.png)
+![png](output_14_1.png)
 
 
 
@@ -850,12 +862,12 @@ sb.countplot(x=dfmushroom['bruises'])
 
 
 
-    <matplotlib.axes._subplots.AxesSubplot at 0x1d592593848>
+    <matplotlib.axes._subplots.AxesSubplot at 0x16d7f231e48>
 
 
 
 
-![png](screenshots/output_16_1.png)
+![png](output_16_1.png)
 
 
 
@@ -868,8 +880,8 @@ dfmushroom['odor'].value_counts()
 
     none        3528
     foul        2160
-    spicy        576
     fishy        576
+    spicy        576
     anise        400
     almond       400
     pungent      256
@@ -887,12 +899,12 @@ sb.countplot(x=dfmushroom['odor'])
 
 
 
-    <matplotlib.axes._subplots.AxesSubplot at 0x1d592ae1a08>
+    <matplotlib.axes._subplots.AxesSubplot at 0x16d7f293108>
 
 
 
 
-![png](screenshots/output_18_1.png)
+![png](output_18_1.png)
 
 
 
@@ -917,12 +929,12 @@ sb.countplot(x=dfmushroom['gill-attachment'])
 
 
 
-    <matplotlib.axes._subplots.AxesSubplot at 0x1d592b73188>
+    <matplotlib.axes._subplots.AxesSubplot at 0x16d7f31a608>
 
 
 
 
-![png](screenshots/output_20_1.png)
+![png](output_20_1.png)
 
 
 
@@ -947,12 +959,12 @@ sb.countplot(x=dfmushroom['gill-spacing'])
 
 
 
-    <matplotlib.axes._subplots.AxesSubplot at 0x1d592bd74c8>
+    <matplotlib.axes._subplots.AxesSubplot at 0x16d7f36b508>
 
 
 
 
-![png](screenshots/output_22_1.png)
+![png](output_22_1.png)
 
 
 
@@ -977,12 +989,12 @@ sb.countplot(x=dfmushroom['gill-size'])
 
 
 
-    <matplotlib.axes._subplots.AxesSubplot at 0x1d592c2f8c8>
+    <matplotlib.axes._subplots.AxesSubplot at 0x16d7f3c8108>
 
 
 
 
-![png](screenshots/output_24_1.png)
+![png](output_24_1.png)
 
 
 
@@ -1017,12 +1029,12 @@ sb.countplot(x=dfmushroom['gill-color'])
 
 
 
-    <matplotlib.axes._subplots.AxesSubplot at 0x1d592c89ac8>
+    <matplotlib.axes._subplots.AxesSubplot at 0x16d7f41df08>
 
 
 
 
-![png](screenshots/output_26_1.png)
+![png](output_26_1.png)
 
 
 
@@ -1047,12 +1059,12 @@ sb.countplot(x=dfmushroom['stalk-shape'])
 
 
 
-    <matplotlib.axes._subplots.AxesSubplot at 0x1d592d11848>
+    <matplotlib.axes._subplots.AxesSubplot at 0x16d7f4a3308>
 
 
 
 
-![png](screenshots/output_28_1.png)
+![png](output_28_1.png)
 
 
 
@@ -1080,12 +1092,12 @@ sb.countplot(x=dfmushroom['stalk-root'])
 
 
 
-    <matplotlib.axes._subplots.AxesSubplot at 0x1d592d69cc8>
+    <matplotlib.axes._subplots.AxesSubplot at 0x16d7f4f8fc8>
 
 
 
 
-![png](screenshots/output_30_1.png)
+![png](output_30_1.png)
 
 
 
@@ -1112,12 +1124,12 @@ sb.countplot(x=dfmushroom['stalk-surface-above-ring'])
 
 
 
-    <matplotlib.axes._subplots.AxesSubplot at 0x1d592dc6308>
+    <matplotlib.axes._subplots.AxesSubplot at 0x16d7f56ae48>
 
 
 
 
-![png](screenshots/output_32_1.png)
+![png](output_32_1.png)
 
 
 
@@ -1144,12 +1156,12 @@ sb.countplot(x=dfmushroom['stalk-surface-below-ring'])
 
 
 
-    <matplotlib.axes._subplots.AxesSubplot at 0x1d592e4b688>
+    <matplotlib.axes._subplots.AxesSubplot at 0x16d7f5bb5c8>
 
 
 
 
-![png](screenshots/output_34_1.png)
+![png](output_34_1.png)
 
 
 
@@ -1181,12 +1193,12 @@ sb.countplot(x=dfmushroom['stalk-color-above-ring'])
 
 
 
-    <matplotlib.axes._subplots.AxesSubplot at 0x1d591dbaf08>
+    <matplotlib.axes._subplots.AxesSubplot at 0x16d7f5c6ac8>
 
 
 
 
-![png](screenshots/output_36_1.png)
+![png](output_36_1.png)
 
 
 
@@ -1218,12 +1230,12 @@ sb.countplot(x=dfmushroom['stalk-color-below-ring'])
 
 
 
-    <matplotlib.axes._subplots.AxesSubplot at 0x1d592f25d88>
+    <matplotlib.axes._subplots.AxesSubplot at 0x16d7f6b54c8>
 
 
 
 
-![png](screenshots/output_38_1.png)
+![png](output_38_1.png)
 
 
 
@@ -1250,12 +1262,12 @@ sb.countplot(x=dfmushroom['veil-color'])
 
 
 
-    <matplotlib.axes._subplots.AxesSubplot at 0x1d592f978c8>
+    <matplotlib.axes._subplots.AxesSubplot at 0x16d7f72eb88>
 
 
 
 
-![png](screenshots/output_40_1.png)
+![png](output_40_1.png)
 
 
 
@@ -1281,12 +1293,12 @@ sb.countplot(x=dfmushroom['ring-number'])
 
 
 
-    <matplotlib.axes._subplots.AxesSubplot at 0x1d593fd5bc8>
+    <matplotlib.axes._subplots.AxesSubplot at 0x16d7f795888>
 
 
 
 
-![png](screenshots/output_42_1.png)
+![png](output_42_1.png)
 
 
 
@@ -1314,12 +1326,12 @@ sb.countplot(x=dfmushroom['ring-type'])
 
 
 
-    <matplotlib.axes._subplots.AxesSubplot at 0x1d59403d788>
+    <matplotlib.axes._subplots.AxesSubplot at 0x16d7e46fc08>
 
 
 
 
-![png](screenshots/output_44_1.png)
+![png](output_44_1.png)
 
 
 
@@ -1335,10 +1347,10 @@ dfmushroom['spore-print-color'].value_counts()
     black        1872
     chocolate    1632
     green          72
-    yellow         48
     buff           48
-    purple         48
     orange         48
+    purple         48
+    yellow         48
     Name: spore-print-color, dtype: int64
 
 
@@ -1351,12 +1363,12 @@ sb.countplot(x=dfmushroom['spore-print-color'])
 
 
 
-    <matplotlib.axes._subplots.AxesSubplot at 0x1d590b10908>
+    <matplotlib.axes._subplots.AxesSubplot at 0x16d7f86f708>
 
 
 
 
-![png](screenshots/output_46_1.png)
+![png](output_46_1.png)
 
 
 
@@ -1385,12 +1397,12 @@ sb.countplot(x=dfmushroom['population'])
 
 
 
-    <matplotlib.axes._subplots.AxesSubplot at 0x1d59412a788>
+    <matplotlib.axes._subplots.AxesSubplot at 0x16d7f8d7ec8>
 
 
 
 
-![png](screenshots/output_48_1.png)
+![png](output_48_1.png)
 
 
 
@@ -1420,15 +1432,15 @@ sb.countplot(x=dfmushroom['habitat'])
 
 
 
-    <matplotlib.axes._subplots.AxesSubplot at 0x1d5941a1748>
+    <matplotlib.axes._subplots.AxesSubplot at 0x16d7f94b188>
 
 
 
 
-![png](screenshots/output_50_1.png)
+![png](output_50_1.png)
 
 
-### 5. Labeling Data using Label Encoder
+## 5. Labeling Data using Label Encoder
 
 
 ```python
@@ -1610,7 +1622,7 @@ dfmushroom.head()
 
 
 
-### 6. Correlation Matrix
+## 6. Correlation Matrix
 
 
 ```python
@@ -2208,15 +2220,15 @@ plt.colorbar()
 
 
 
-    <matplotlib.colorbar.Colorbar at 0x1d5942d45c8>
+    <matplotlib.colorbar.Colorbar at 0x16d7fa9cf48>
 
 
 
 
-![png](screenshots/output_55_1.png)
+![png](output_55_1.png)
 
 
-### 7. Train Test Split
+## 7. Train Test Split
 
 
 ```python
@@ -2232,7 +2244,7 @@ xtr,xts,ytr,yts = train_test_split(
 )
 ```
 
-### 8. Applying Models (K-Nearest Neighbour, Logistic Regression, Random Forest Classifier)
+## 8. Applying Models (K-Nearest Neighbour and Random Forest Classifier)
 
 
 ```python
@@ -2247,9 +2259,6 @@ modelknn = KNeighborsClassifier(
     n_neighbors = nilai_k()
 )
 modelknn.fit(xtr,ytr)
-
-logmodel = LogisticRegression(solver='lbfgs',max_iter=1000)
-logmodel.fit(xtr,ytr)
 
 modelrfc = RandomForestClassifier(n_estimators=100)
 modelrfc.fit(xtr,ytr)
@@ -2268,7 +2277,75 @@ modelrfc.fit(xtr,ytr)
 
 
 
-### 9. Cross Validating Scores of each Models
+
+```python
+search = GridSearchCV(estimator=modelrfc,
+                     param_grid={
+                         'n_estimators':[100,200,300,500],
+                         'bootstrap': ['True','False'],
+                         'min_samples_split':[2,5,10,20]
+                     },scoring='accuracy',
+                      cv=5,n_jobs= -1)
+```
+
+
+```python
+search.fit(xtr,ytr)
+```
+
+
+
+
+    GridSearchCV(cv=5, error_score='raise-deprecating',
+                 estimator=RandomForestClassifier(bootstrap=True, class_weight=None,
+                                                  criterion='gini', max_depth=None,
+                                                  max_features='auto',
+                                                  max_leaf_nodes=None,
+                                                  min_impurity_decrease=0.0,
+                                                  min_impurity_split=None,
+                                                  min_samples_leaf=1,
+                                                  min_samples_split=2,
+                                                  min_weight_fraction_leaf=0.0,
+                                                  n_estimators=100, n_jobs=None,
+                                                  oob_score=False,
+                                                  random_state=None, verbose=0,
+                                                  warm_start=False),
+                 iid='warn', n_jobs=-1,
+                 param_grid={'bootstrap': ['True', 'False'],
+                             'min_samples_split': [2, 5, 10, 20],
+                             'n_estimators': [100, 200, 300, 500]},
+                 pre_dispatch='2*n_jobs', refit=True, return_train_score=False,
+                 scoring='accuracy', verbose=0)
+
+
+
+
+```python
+search.best_params_
+```
+
+
+
+
+    {'bootstrap': 'True', 'min_samples_split': 2, 'n_estimators': 100}
+
+
+
+
+```python
+modelrfc = RandomForestClassifier(bootstrap=True,min_samples_split=2,n_estimators=100)
+```
+
+## 9. Cross Validating Scores of each Models
+```python
+(cross_val_score(modelknn,xtr,ytr,cv = 5).mean())
+```
+
+
+
+
+    0.8161561223212201
+
 
 
 ```python
@@ -2282,26 +2359,7 @@ modelrfc.fit(xtr,ytr)
 
 
 
-
-```python
-(cross_val_score(modelknn,xtr,ytr,cv = 5).mean())
-```
-
-
-
-
-    0.8161561223212201
-
-
-
-
-
-
-
-
-##### Based on scores above, it can be concluded that Random Forest Classifier gives the best cross validation scores. The author decided to go on with Random Forest Classifier for the rest of model validation.
-
-### 10. Prediction, Classification Report, Confusion Matrix, ROC AUC, Accuracy, and Matthews Correlation Coefficient
+## 10. Prediction, Classification Report, Confusion Matrix, ROC AUC, Accuracy, and Matthews Correlation Coefficient
 
 
 ```python
@@ -2433,7 +2491,7 @@ print('Matthews Corr_coef :',matthews_corrcoef(yts, pred))
     Matthews Corr_coef : 0.9213078340461947
     
 
-### 11. Dumping model into joblib file
+## 11. Dumping model into joblib file
 
 
 ```python
