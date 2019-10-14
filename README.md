@@ -2253,7 +2253,7 @@ xtr,xts,ytr,yts = train_test_split(
 )
 ```
 
-### 8. Applying Models (K-Nearest Neighbour, Logistic Regression, Random Forest Classifier)
+### 8. Applying Models (K-Nearest Neighbour and Random Forest Classifier)
 
 
 ```python
