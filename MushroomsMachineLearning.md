@@ -2285,18 +2285,6 @@ modelrfc.fit(xtr,ytr)
 
 
 ```python
-(cross_val_score(modelrfc,xts,yts,cv = 5).mean())
-```
-
-
-
-
-    0.9606396063960639
-
-
-
-
-```python
 (cross_val_score(modelknn,xtr,ytr,cv = 5).mean())
 ```
 
@@ -2304,18 +2292,6 @@ modelrfc.fit(xtr,ytr)
 
 
     0.8161561223212201
-
-
-
-
-```python
-(cross_val_score(modelknn,xts,yts,cv = 5).mean())
-```
-
-
-
-
-    0.8181334315754663
 
 
 
@@ -2330,16 +2306,6 @@ modelrfc.fit(xtr,ytr)
     0.7264645666117772
 
 
-
-
-```python
-(cross_val_score(logmodel,xts,yts,cv = 5).mean())
-```
-
-
-
-
-    0.7202134541344456
 
 
 
