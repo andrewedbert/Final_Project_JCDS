@@ -1,7 +1,7 @@
 
-# Poisonous Mushrooms Classification
+## Poisonous Mushrooms Classification
 
-## 1. Importing required libraries
+### 1. Importing required libraries
 
 
 ```python
@@ -18,7 +18,7 @@ import seaborn as sb
 from sklearn.linear_model import LogisticRegression
 ```
 
-## 2. Reading CSV Data
+### 2. Reading CSV Data
 
 
 ```python
@@ -198,7 +198,7 @@ dfmushroom.head()
 
 
 
-## 3. Translating Alphabetical signs into words from 'Mushroom Notes.txt' notes
+### 3. Translating Alphabetical signs into words from 'Mushroom Notes.txt' notes
 
 
 ```python
@@ -697,7 +697,7 @@ dfmushroom
 
 
 
-## 4. Data Visualisation
+### 4. Data Visualisation
 
 
 ```python
@@ -760,7 +760,7 @@ sb.countplot(x=dfmushroom['class'])
 
 
 
-![png](output_10_1.png)
+![png](screenshots/output_10_1.png)
 
 
 
@@ -794,7 +794,7 @@ sb.countplot(x=dfmushroom['cap-shape'])
 
 
 
-![png](output_12_1.png)
+![png](screenshots/output_12_1.png)
 
 
 
@@ -826,7 +826,7 @@ sb.countplot(x=dfmushroom['cap-surface'])
 
 
 
-![png](output_14_1.png)
+![png](screenshots/output_14_1.png)
 
 
 
@@ -856,7 +856,7 @@ sb.countplot(x=dfmushroom['bruises'])
 
 
 
-![png](output_16_1.png)
+![png](screenshots/output_16_1.png)
 
 
 
@@ -893,7 +893,7 @@ sb.countplot(x=dfmushroom['odor'])
 
 
 
-![png](output_18_1.png)
+![png](screenshots/output_18_1.png)
 
 
 
@@ -923,7 +923,7 @@ sb.countplot(x=dfmushroom['gill-attachment'])
 
 
 
-![png](output_20_1.png)
+![png](screenshots/output_20_1.png)
 
 
 
@@ -953,7 +953,7 @@ sb.countplot(x=dfmushroom['gill-spacing'])
 
 
 
-![png](output_22_1.png)
+![png](screenshots/output_22_1.png)
 
 
 
@@ -983,7 +983,7 @@ sb.countplot(x=dfmushroom['gill-size'])
 
 
 
-![png](output_24_1.png)
+![png](screenshots/output_24_1.png)
 
 
 
@@ -1023,7 +1023,7 @@ sb.countplot(x=dfmushroom['gill-color'])
 
 
 
-![png](output_26_1.png)
+![png](screenshots/output_26_1.png)
 
 
 
@@ -1053,7 +1053,7 @@ sb.countplot(x=dfmushroom['stalk-shape'])
 
 
 
-![png](output_28_1.png)
+![png](screenshots/output_28_1.png)
 
 
 
@@ -1086,7 +1086,7 @@ sb.countplot(x=dfmushroom['stalk-root'])
 
 
 
-![png](output_30_1.png)
+![png](screenshots/output_30_1.png)
 
 
 
@@ -1118,7 +1118,7 @@ sb.countplot(x=dfmushroom['stalk-surface-above-ring'])
 
 
 
-![png](output_32_1.png)
+![png](screenshots/output_32_1.png)
 
 
 
@@ -1150,7 +1150,7 @@ sb.countplot(x=dfmushroom['stalk-surface-below-ring'])
 
 
 
-![png](output_34_1.png)
+![png](screenshots/output_34_1.png)
 
 
 
@@ -1187,7 +1187,7 @@ sb.countplot(x=dfmushroom['stalk-color-above-ring'])
 
 
 
-![png](output_36_1.png)
+![png](screenshots/output_36_1.png)
 
 
 
@@ -1224,7 +1224,7 @@ sb.countplot(x=dfmushroom['stalk-color-below-ring'])
 
 
 
-![png](output_38_1.png)
+![png](screenshots/output_38_1.png)
 
 
 
@@ -1256,7 +1256,7 @@ sb.countplot(x=dfmushroom['veil-color'])
 
 
 
-![png](output_40_1.png)
+![png](screenshots/output_40_1.png)
 
 
 
@@ -1287,7 +1287,7 @@ sb.countplot(x=dfmushroom['ring-number'])
 
 
 
-![png](output_42_1.png)
+![png](screenshots/output_42_1.png)
 
 
 
@@ -1320,7 +1320,7 @@ sb.countplot(x=dfmushroom['ring-type'])
 
 
 
-![png](output_44_1.png)
+![png](screenshots/output_44_1.png)
 
 
 
@@ -1357,7 +1357,7 @@ sb.countplot(x=dfmushroom['spore-print-color'])
 
 
 
-![png](output_46_1.png)
+![png](screenshots/output_46_1.png)
 
 
 
@@ -1391,7 +1391,7 @@ sb.countplot(x=dfmushroom['population'])
 
 
 
-![png](output_48_1.png)
+![png](screenshots/output_48_1.png)
 
 
 
@@ -1426,10 +1426,10 @@ sb.countplot(x=dfmushroom['habitat'])
 
 
 
-![png](output_50_1.png)
+![png](screenshots/output_50_1.png)
 
 
-## 5. Labeling Data using Label Encoder
+### 5. Labeling Data using Label Encoder
 
 
 ```python
@@ -1611,7 +1611,7 @@ dfmushroom.head()
 
 
 
-## 6. Correlation Matrix
+### 6. Correlation Matrix
 
 
 ```python
@@ -2214,10 +2214,10 @@ plt.colorbar()
 
 
 
-![png](output_55_1.png)
+![png](screenshots/output_55_1.png)
 
 
-## 7. Train Test Split
+### 7. Train Test Split
 
 
 ```python
@@ -2233,7 +2233,7 @@ xtr,xts,ytr,yts = train_test_split(
 )
 ```
 
-## 8. Applying Models (K-Nearest Neighbour, Logistic Regression, Random Forest Classifier)
+### 8. Applying Models (K-Nearest Neighbour, Logistic Regression, Random Forest Classifier)
 
 
 ```python
@@ -2269,11 +2269,11 @@ modelrfc.fit(xtr,ytr)
 
 
 
-## 9. Cross Validating Scores of each Models
+### 9. Cross Validating Scores of each Models
 
 
 ```python
-round(cross_val_score(modelrfc,xtr,ytr,cv = 5).mean())
+(cross_val_score(modelrfc,xtr,ytr,cv = 5).mean())
 ```
 
 
@@ -2285,7 +2285,7 @@ round(cross_val_score(modelrfc,xtr,ytr,cv = 5).mean())
 
 
 ```python
-round(cross_val_score(modelrfc,xts,yts,cv = 5).mean())
+(cross_val_score(modelrfc,xts,yts,cv = 5).mean())
 ```
 
 
@@ -2297,7 +2297,7 @@ round(cross_val_score(modelrfc,xts,yts,cv = 5).mean())
 
 
 ```python
-round(cross_val_score(modelknn,xtr,ytr,cv = 5).mean())
+(cross_val_score(modelknn,xtr,ytr,cv = 5).mean())
 ```
 
 
@@ -2309,7 +2309,7 @@ round(cross_val_score(modelknn,xtr,ytr,cv = 5).mean())
 
 
 ```python
-round(cross_val_score(modelknn,xts,yts,cv = 5).mean())
+(cross_val_score(modelknn,xts,yts,cv = 5).mean())
 ```
 
 
@@ -2321,7 +2321,7 @@ round(cross_val_score(modelknn,xts,yts,cv = 5).mean())
 
 
 ```python
-round(cross_val_score(logmodel,xtr,ytr,cv = 5).mean())
+(cross_val_score(logmodel,xtr,ytr,cv = 5).mean())
 ```
 
 
@@ -2333,7 +2333,7 @@ round(cross_val_score(logmodel,xtr,ytr,cv = 5).mean())
 
 
 ```python
-round(cross_val_score(logmodel,xts,yts,cv = 5).mean())
+(cross_val_score(logmodel,xts,yts,cv = 5).mean())
 ```
 
 
@@ -2345,7 +2345,7 @@ round(cross_val_score(logmodel,xts,yts,cv = 5).mean())
 
 ##### Based on scores above, it can be concluded that Random Forest Classifier gives the best cross validation scores. The author decided to go on with Random Forest Classifier for the rest of model validation.
 
-## 10. Prediction, Classification Report, Confusion Matrix, ROC AUC, Accuracy, and Matthews Correlation Coefficient
+### 10. Prediction, Classification Report, Confusion Matrix, ROC AUC, Accuracy, and Matthews Correlation Coefficient
 
 
 ```python
@@ -2477,7 +2477,7 @@ print('Matthews Corr_coef :',matthews_corrcoef(yts, pred))
     Matthews Corr_coef : 0.9213078340461947
     
 
-## 11. Dumping model into joblib file
+### 11. Dumping model into joblib file
 
 
 ```python

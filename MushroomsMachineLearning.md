@@ -2273,7 +2273,7 @@ modelrfc.fit(xtr,ytr)
 
 
 ```python
-round(cross_val_score(modelrfc,xtr,ytr,cv = 5).mean())
+(cross_val_score(modelrfc,xtr,ytr,cv = 5).mean())
 ```
 
 
@@ -2285,7 +2285,7 @@ round(cross_val_score(modelrfc,xtr,ytr,cv = 5).mean())
 
 
 ```python
-round(cross_val_score(modelrfc,xts,yts,cv = 5).mean())
+(cross_val_score(modelrfc,xts,yts,cv = 5).mean())
 ```
 
 
@@ -2297,7 +2297,7 @@ round(cross_val_score(modelrfc,xts,yts,cv = 5).mean())
 
 
 ```python
-round(cross_val_score(modelknn,xtr,ytr,cv = 5).mean())
+(cross_val_score(modelknn,xtr,ytr,cv = 5).mean())
 ```
 
 
@@ -2309,7 +2309,7 @@ round(cross_val_score(modelknn,xtr,ytr,cv = 5).mean())
 
 
 ```python
-round(cross_val_score(modelknn,xts,yts,cv = 5).mean())
+(cross_val_score(modelknn,xts,yts,cv = 5).mean())
 ```
 
 
@@ -2321,7 +2321,7 @@ round(cross_val_score(modelknn,xts,yts,cv = 5).mean())
 
 
 ```python
-round(cross_val_score(logmodel,xtr,ytr,cv = 5).mean())
+(cross_val_score(logmodel,xtr,ytr,cv = 5).mean())
 ```
 
 
@@ -2333,7 +2333,7 @@ round(cross_val_score(logmodel,xtr,ytr,cv = 5).mean())
 
 
 ```python
-round(cross_val_score(logmodel,xts,yts,cv = 5).mean())
+(cross_val_score(logmodel,xts,yts,cv = 5).mean())
 ```
 
 
