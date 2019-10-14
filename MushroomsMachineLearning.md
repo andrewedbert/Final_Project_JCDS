@@ -15,7 +15,6 @@ from sklearn.metrics import confusion_matrix,classification_report,matthews_corr
 from sklearn.neighbors import KNeighborsClassifier
 from sklearn.model_selection import cross_val_score
 import seaborn as sb
-from sklearn.linear_model import LogisticRegression
 ```
 
 ### 2. Reading CSV Data
@@ -2295,15 +2294,6 @@ modelrfc.fit(xtr,ytr)
 
 
 
-
-```python
-(cross_val_score(logmodel,xtr,ytr,cv = 5).mean())
-```
-
-
-
-
-    0.7264645666117772
 
 
 

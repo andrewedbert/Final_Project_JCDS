@@ -12,11 +12,10 @@ This project falls into the topic of classification with machine learning model.
 The dataset used for model training is obtainable from [kaggle](https://www.kaggle.com/uciml/mushroom-classification) with original research data from several universities in [UCI Machine Learning Repositories](https://archive.ics.uci.edu/ml/datasets/Mushroom).
 Three machine learning models were used and compared through, they are: 
 
-1. Logistic Regression
-2. K-Nearest Neighbour (KNN)
-3. Random Forest Classifier
+1. K-Nearest Neighbour (KNN)
+2. Random Forest Classifier
 
-After comparing the three models, Random Forest Classifier was chosen to process all the mushroom data up until the prediction due to higher model score compared to both Logistic Regression and K-Nearest Neighbour. The front-end interface was made with the help of [Flask](https://palletsprojects.com/p/flask/) and other miscellaneous things.
+After comparing two models, Random Forest Classifier was chosen to process all the mushroom data up until the prediction due to higher model score compared to K-Nearest Neighbour. The front-end interface was made with the help of [Flask](https://palletsprojects.com/p/flask/) and other miscellaneous things.
 
 As the preparation, the dataset were all cleaned, and visualised with the help of [Pandas](https://pandas.pydata.org/) and [Matplotlib](https://matplotlib.org/). The model were dumped using joblib by *MushroomsMachineLearning.ipynb*. Further on, the barplot which is available on the prediction page were made by utilizing [Seaborn](https://seaborn.pydata.org/)
 
@@ -37,7 +36,6 @@ from sklearn.metrics import confusion_matrix,classification_report,matthews_corr
 from sklearn.neighbors import KNeighborsClassifier
 from sklearn.model_selection import cross_val_score
 import seaborn as sb
-from sklearn.linear_model import LogisticRegression
 ```
 
 ### 2. Reading CSV Data
@@ -2316,15 +2314,6 @@ modelrfc.fit(xtr,ytr)
     0.8161561223212201
 
 
-
-```python
-(cross_val_score(logmodel,xtr,ytr,cv = 5).mean())
-```
-
-
-
-
-    0.7264645666117772
 
 
 
