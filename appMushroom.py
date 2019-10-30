@@ -30,7 +30,7 @@ dictgillspacing = {0:'close',1:'crowded',2:'distant'}
 dictgillsize = {0:'broad',1:'narrow'}
 dictgillcolor = {0:'black',1:'brown',2:'buff',3:'chocolate',4:'gray',5:'green',6:'orange',7:'pink',8:'purple',9:'red',10:'white',11:'yellow'}
 dictstalkshape = {0:'enlarging',1:'tapering'}
-dictstalkroot = {0:'bulbous',1:'club',2:'cup',3:'equal',4:'rhizomorphs',5:'rooted',6:'missing'}
+# dictstalkroot = {0:'bulbous',1:'club',2:'cup',3:'equal',4:'rhizomorphs',5:'rooted',6:'missing'}
 dictstalksurfaceabovering = {0:'fibrous',1:'scaly',2:'silky',3:'smooth'}
 dictstalksurfacebelowring = {0:'fibrous',1:'scaly',2:'silky',3:'smooth'}
 dictstalkcolorabovering = {0:'brown',1:'buff',2:'cinnamon',3:'gray',4:'orange',5:'pink',6:'red',7:'white',8:'yellow'}
@@ -106,7 +106,6 @@ def signup():
                 gill_size varchar(50) not null,
                 gill_color varchar(50) not null,
                 stalk_shape varchar(50) not null,
-                stalk_root varchar(50) not null,
                 stalk_surface_above_ring varchar(50) not null,
                 stalk_surface_below_ring varchar(50) not null,
                 stalk_color_above_ring varchar(50) not null,
@@ -150,7 +149,7 @@ def res():
         gill_size = int(request.form['gill-size'])
         gill_color = int(request.form['gill-color'])
         stalk_shape = int(request.form['stalk-shape'])
-        stalk_root = int(request.form['stalk-root'])
+        # stalk_root = int(request.form['stalk-root'])
         stalk_surface_above_ring = int(request.form['stalk-surface-above-ring'])
         stalk_surface_below_ring = int(request.form['stalk-surface-below-ring'])
         stalk_color_above_ring = int(request.form['stalk-color-above-ring'])
@@ -173,7 +172,7 @@ def res():
             gill_size,
             gill_color,
             stalk_shape,
-            stalk_root,
+            # stalk_root,
             stalk_surface_above_ring,
             stalk_surface_below_ring,
             stalk_color_above_ring,
@@ -204,7 +203,6 @@ def res():
                 gill_size,
                 gill_color,
                 stalk_shape,
-                stalk_root,
                 stalk_surface_above_ring,
                 stalk_surface_below_ring,
                 stalk_color_above_ring,
@@ -227,7 +225,6 @@ def res():
                 '{str(dictgillsize[gill_size])}',
                 '{str(dictgillcolor[gill_color])}',
                 '{str(dictstalkshape[stalk_shape])}',
-                '{str(dictstalkroot[stalk_root])}',
                 '{str(dictstalksurfaceabovering[stalk_surface_above_ring])}',
                 '{str(dictstalksurfacebelowring[stalk_surface_below_ring])}',
                 '{str(dictstalkcolorabovering[stalk_color_above_ring])}',
