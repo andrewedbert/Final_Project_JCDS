@@ -30,7 +30,6 @@ dictgillspacing = {0:'close',1:'crowded',2:'distant'}
 dictgillsize = {0:'broad',1:'narrow'}
 dictgillcolor = {0:'black',1:'brown',2:'buff',3:'chocolate',4:'gray',5:'green',6:'orange',7:'pink',8:'purple',9:'red',10:'white',11:'yellow'}
 dictstalkshape = {0:'enlarging',1:'tapering'}
-# dictstalkroot = {0:'bulbous',1:'club',2:'cup',3:'equal',4:'rhizomorphs',5:'rooted',6:'missing'}
 dictstalksurfaceabovering = {0:'fibrous',1:'scaly',2:'silky',3:'smooth'}
 dictstalksurfacebelowring = {0:'fibrous',1:'scaly',2:'silky',3:'smooth'}
 dictstalkcolorabovering = {0:'brown',1:'buff',2:'cinnamon',3:'gray',4:'orange',5:'pink',6:'red',7:'white',8:'yellow'}
@@ -44,9 +43,6 @@ dicthabitat = {0:'grasses',1:'leaves',2:'meadows',3:'paths',4:'urban',5:'waste',
 
 app = Flask(__name__)
 
-with open('database.json') as dataku:
-    data = json.load(dataku)
-
 user = []
 
 @app.route('/', methods = ['GET', 'POST'])
@@ -56,72 +52,49 @@ def welcome():
     else:
         return redirect('login')
 
-@app.route('/login', methods = ['GET', 'POST'])
+@app.route('/login', methods=['GET','POST'])
 def login():
     if request.method == 'POST':
         nam_l = request.form['nama_login']
         pwd_l = request.form['pass_login']
-        if str(data) == '[]':
-            return render_template('loginerror.html', nama = nam_l)
+        df = pd.read_sql(f"select * from userdata",dbc)
+        if nam_l in list(df['username']):
+            if str(pwd_l) == str(df['password'][df['username']==str(nam_l)].values[0]):
+                user.append(str(nam_l))
+                return redirect('/main')
+            else:
+                return render_template('loginerror.html')
         else:
-            for a in range(len(data)):
-                if nam_l == data[a]['nama'] and pwd_l == data[a]['pass']:
-                    user.append(str(nam_l))
-                    return redirect('/main')
-                elif a == len(data) - 1:
-                    return render_template('loginerror.html')
-                else:
-                    continue
+            return render_template('loginerror.html')
     else:
         if str(user) != '[]':
             return redirect('/main')
         else:
             return render_template('login.html')
 
-@app.route('/signup', methods = ['GET', 'POST'])
+@app.route('/signup', methods=['GET','POST'])
 def signup():
     if request.method == 'POST':
         nam_s = request.form['nama_signup']
         pwd_s = request.form['pass_signup']
-        lis = []
-        for i in range(len(data)):
-            lis.append(data[i]['nama'])
-        if str(nam_s) not in lis:
-            data.append({'nama': nam_s, 'pass': pwd_s})
-            y = json.dumps(data)
-
-            json_data = open('database.json', 'w')
-            json_data.write(y)
-            querydb = f"""create table {str(nam_s)} (
-                no int not null auto_increment,
-                results varchar(50) not null,
-                tested_at timestamp default current_timestamp,
-                cap_shape varchar(50) not null,
-                cap_surface varchar(50) not null,
-                cap_color varchar(50) not null,
-                bruises varchar(50) not null,
-                odor varchar(50) not null,
-                gill_attachment varchar(50) not null,
-                gill_spacing varchar(50) not null,
-                gill_size varchar(50) not null,
-                gill_color varchar(50) not null,
-                stalk_shape varchar(50) not null,
-                stalk_surface_above_ring varchar(50) not null,
-                stalk_surface_below_ring varchar(50) not null,
-                stalk_color_above_ring varchar(50) not null,
-                stalk_color_below_ring varchar(50) not null,
-                veil_color varchar(50) not null,
-                ring_number varchar(50) not null,
-                ring_type varchar(50) not null,
-                spore_print_color varchar(50) not null,
-                population varchar(50) not null,
-                habitat varchar(50) not null,
-                primary key(no))"""
-            kursor.execute(querydb)
+        kursor.execute('select * from userdata')
+        process = kursor.fetchall()
+        if str(process) == '[]':
+            val = (nam_s, pwd_s)
+            query='insert into userdata (username, password) values (%s,%s)'
+            kursor.execute(query,val)
             dbku.commit()
             return redirect('/')
         else:
-            return render_template('signupexists.html')
+            for i in process:
+                if nam_s in i[1]:
+                    return render_template('signupexists.html')
+                else:
+                    val = (nam_s, pwd_s)
+                    query='insert into userdata (username, password) values (%s,%s)'
+                    kursor.execute(query,val)
+                    dbku.commit()
+                    return redirect('/')
     else:
         if str(user) != '[]':
             return redirect('/main')
@@ -149,7 +122,6 @@ def res():
         gill_size = int(request.form['gill-size'])
         gill_color = int(request.form['gill-color'])
         stalk_shape = int(request.form['stalk-shape'])
-        # stalk_root = int(request.form['stalk-root'])
         stalk_surface_above_ring = int(request.form['stalk-surface-above-ring'])
         stalk_surface_below_ring = int(request.form['stalk-surface-below-ring'])
         stalk_color_above_ring = int(request.form['stalk-color-above-ring'])
@@ -160,6 +132,12 @@ def res():
         spore_print_color = int(request.form['spore-print-color'])
         population = int(request.form['population'])
         habitat = int(request.form['habitat'])
+
+        cuser = str(user[0])
+        userq = f"""select id from userdata where username = '{cuser}'"""
+        kursor.execute(userq)
+        ruser = kursor.fetchall()
+        val = ruser[0][0]
 
         mushrooms = [
             cap_shape,
@@ -172,7 +150,6 @@ def res():
             gill_size,
             gill_color,
             stalk_shape,
-            # stalk_root,
             stalk_surface_above_ring,
             stalk_surface_below_ring,
             stalk_color_above_ring,
@@ -191,7 +168,8 @@ def res():
         else:
             results = 'Poisonous'
 
-        querydb = f"""insert into {str(user[0])}(
+        querydb = f"""insert into history(
+                userid,
                 results,
                 cap_shape,
                 cap_surface,
@@ -214,6 +192,7 @@ def res():
                 population,
                 habitat
             ) values (
+                {str(val)},
                 '{str(results)}',
                 '{str(dictcapshape[cap_shape])}',
                 '{str(dictcapsurface[cap_surface])}',
@@ -294,7 +273,34 @@ def test():
     if str(user) == '[]':
         return redirect('login')
     else:
-        df = pd.read_sql(f"select * from {str(user[0])}", dbc)
+        cuser = str(user[0])
+        userq = f"""select id from userdata where username = '{cuser}'"""
+        kursor.execute(userq)
+        ruser = kursor.fetchall()
+        val = ruser[0][0]
+        df = pd.read_sql(f"""select
+            tested_at, 
+            results,
+            cap_shape,
+            cap_surface,
+            cap_color,
+            bruises,
+            odor,
+            gill_attachment,
+            gill_spacing,
+            gill_size,
+            gill_color,
+            stalk_shape,
+            stalk_surface_above_ring,
+            stalk_surface_below_ring,
+            stalk_color_above_ring,
+            stalk_color_below_ring,
+            veil_color,
+            ring_number,
+            ring_type,
+            spore_print_color,
+            population,
+            habitat from history where userid = {val}""", dbc)
         return render_template('history.html', user=user[0], data1=df.columns.tolist(), data2=df.values.tolist())
 
 @app.errorhandler(404)
